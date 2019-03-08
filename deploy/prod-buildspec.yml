@@ -1,0 +1,22 @@
+version: 0.2
+
+env:
+  parameter-store:
+    AWS_ACCESS_KEY_ID: SERVERLESS_PRODUCTION_AWS_ACCESS_KEY
+    AWS_SECRET_ACCESS_KEY: SERVERLESS_PRODUCTION_AWS_ACCESS_SECRET
+
+phases:
+  install:
+    commands:
+       - npm install -g serverless
+       - cd / && serverless config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY --profile production
+  pre_build:
+    commands:
+      - echo 'serverless version -' `serverless --version`
+      - cd $CODEBUILD_SRC_DIR
+  build:
+    commands:
+      - yarn
+      - sls deploy --stage prod --profile production
+  post_build:
+    commands:

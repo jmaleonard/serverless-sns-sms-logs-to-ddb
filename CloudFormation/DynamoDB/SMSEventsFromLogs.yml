@@ -1,0 +1,22 @@
+Table:
+  Type: AWS::DynamoDB::Table
+  DeletionPolicy: Retain
+  Properties:
+    AttributeDefinitions:
+      -
+        AttributeName: messageId
+        AttributeType: S
+      -
+        AttributeName: phoneNumber
+        AttributeType: S
+    KeySchema:
+      -
+        AttributeName: messageId
+        KeyType: HASH
+      -
+        AttributeName: phoneNumber
+        KeyType: RANGE
+    TableName: SMSEventsFromLogs
+    BillingMode: PAY_PER_REQUEST
+    StreamSpecification:
+      StreamViewType: NEW_AND_OLD_IMAGES

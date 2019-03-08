@@ -1,0 +1,30 @@
+{
+  "name": "serverless-sns-sms-logs-to-ddb",
+  "version": "0.0.0",
+  "description": "\"Scrape logs into AWS DynamoDB\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jmaleonard",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "aws-sdk": "^2.326.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "serverless-prune-plugin": "^1.3.1",
+    "serverless-scriptable-plugin": "^0.8.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jest": "^23.4.2"
+  },
+  "jest": {
+    "verbose": false,
+    "testURL": "http://localhost/"
+  }
+}
